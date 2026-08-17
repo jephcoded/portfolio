@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jeloga Case Study | jephdev</title>
+  <link rel="icon" type="image/png" href="favicon.png" />
+  <link rel="shortcut icon" href="favicon.png" />
+  <meta name="description" content="How jephdev built Jeloga — a complete ride-sharing platform from zero. Mobile app, web dashboard, live backend. Launched in under 3 months." />
+  <meta property="og:title" content="Jeloga — Ride-Sharing Platform Case Study | jephdev" />
+  <meta property="og:description" content="From zero to live: a complete ride-sharing app built solo in under 3 months." />
+  <meta property="og:image" content="jeloga.png" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ══ NAV OVERLAY ══ -->
+  <div class="nav-overlay" id="navOverlay" role="dialog" aria-modal="true" aria-label="Navigation">
+    <div class="nav-overlay-inner">
+      <ul class="nav-overlay-links">
+        <li><a href="index.html"><span class="nav-num">01</span><span data-i18n="nav.home">Home</span></a></li>
+        <li><a href="about.html"><span class="nav-num">02</span><span data-i18n="nav.about">About</span></a></li>
+        <li><a href="projects.html" class="current"><span class="nav-num">03</span><span data-i18n="nav.projects">Projects</span></a></li>
+        <li><a href="services.html"><span class="nav-num">04</span><span data-i18n="nav.services">Services</span></a></li>
+        <li><a href="contact.html"><span class="nav-num">05</span><span data-i18n="nav.contact">Contact</span></a></li>
+      </ul>
+      <div class="nav-overlay-socials">
+        <a href="https://github.com/jephcoded" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a href="https://linkedin.com/in/jephdev" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="mailto:jephcoding@gmail.com">Email</a>
+        <a href="https://wa.me/2349067069213" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ HEADER ══ -->
+  <header class="header" id="siteHeader">
+    <nav class="nav container">
+      <a href="index.html" class="logo">jephdev<span>.</span></a>
+      <ul class="nav-links-inline">
+        <li><a href="index.html" data-i18n="nav.home">Home</a></li>
+        <li><a href="about.html" data-i18n="nav.about">About</a></li>
+        <li><a href="projects.html" class="current" data-i18n="nav.projects">Projects</a></li>
+        <li><a href="services.html" data-i18n="nav.services">Services</a></li>
+        <li><a href="contact.html" data-i18n="nav.contact">Contact</a></li>
+      </ul>
+      <div class="nav-right">
+        <a href="tel:+2349067069213" class="nav-phone">+234 906 706 9213</a>
+        <a href="contact.html" class="nav-cta-btn" data-i18n="nav.cta">Get a Quote</a>
+        <a href="https://github.com/jephcoded" class="nav-icon-btn" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="bi bi-github"></i></a>
+        <a href="https://wa.me/2349067069213" class="nav-icon-btn whatsapp-btn" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></a>
+        <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="navOverlay">
+          <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+        </button>
+        <div class="lang-switcher">
+          <button class="lang-btn active" data-lang="en">EN</button>
+          <button class="lang-btn" data-lang="fr">FR</button>
+          <button class="lang-btn" data-lang="es">ES</button>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main class="page-main">
+
+    <!-- ── Case Study Hero ── -->
+    <section class="page-hero container">
+      <div class="case-hero-meta">
+        <p class="section-eyebrow" style="margin:0;">Case Study · Ride-Sharing · 2024</p>
+        <a href="projects.html" class="case-back-link">← Back to Projects</a>
+      </div>
+      <h1>Jeloga.</h1>
+      <p class="case-tagline">A complete ride-sharing platform built from zero — mobile app, web dashboard, and live backend. Real bookings, real drivers, real revenue across Nigeria. Launched on the App Store in under 3 months.</p>
+      <div class="case-badges">
+        <span class="case-badge">🚀 Live on App Store &amp; Play Store</span>
+        <span class="case-badge">⚡ Under 3 Months to Launch</span>
+        <span class="case-badge">💰 Real Bookings &amp; Revenue</span>
+        <span class="case-badge">👤 Built Solo</span>
+      </div>
+      <div style="margin-top:1.8rem; display:flex; gap:0.85rem; flex-wrap:wrap;">
+        <a href="https://jeloga.ng" target="_blank" rel="noopener noreferrer" class="btn">↗ Visit jeloga.ng</a>
+        <a href="contact.html" class="btn btn-ghost">Start a Similar Project</a>
+      </div>
+    </section>
+
+    <!-- ── Screenshot ── -->
+    <section class="container case-screenshot-wrap">
+      <img src="jeloga.png" alt="Jeloga platform screenshot" class="case-screenshot" />
+    </section>
+
+    <!-- ── The Brief ── -->
+    <section class="section container">
+      <p class="section-eyebrow">The Challenge</p>
+      <h2>Build Uber for Nigeria. From Nothing.</h2>
+      <div class="case-brief-grid">
+        <div class="case-brief-body">
+          <p>Mr. Okezie came to me with a clear brief: build a full ride-sharing platform for Nigeria — from zero. No existing codebase, no design files. Just a vision: an Uber-like experience built for the Nigerian market, fast.</p>
+          <p>The scope was ambitious: a rider mobile app, a separate driver app, a web-based admin dashboard for operations, a live backend to handle real-time bookings and payments — all deployed, all integrated, all production-ready.</p>
+          <p>Most platforms like this take large teams 6–12 months. We did it in under 3, and Jeloga went live on both the App Store and Google Play Store handling real user bookings from day one.</p>
+        </div>
+        <div class="case-info-card">
+          <div class="case-info-row">
+            <span class="case-info-label">Client</span>
+            <span class="case-info-value">Mr. Okezie, CEO — Jeloga</span>
+          </div>
+          <div class="case-info-row">
+            <span class="case-info-label">Timeline</span>
+            <span class="case-info-value">Under 3 months</span>
+          </div>
+          <div class="case-info-row">
+            <span class="case-info-label">My Role</span>
+            <span class="case-info-value">Solo Developer (end-to-end)</span>
+          </div>
+          <div class="case-info-row">
+            <span class="case-info-label">Platforms</span>
+            <span class="case-info-value">iOS · Android · Web</span>
+          </div>
+          <div class="case-info-row">
+            <span class="case-info-label">Status</span>
+            <span class="case-info-value">Live &amp; Growing</span>
+          </div>
+          <div class="case-info-row">
+            <span class="case-info-label">Live at</span>
+            <span class="case-info-value"><a href="https://jeloga.ng" target="_blank" rel="noopener noreferrer" class="text-link" style="font-size:0.85rem;">jeloga.ng ↗</a></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Architecture ── -->
+    <section class="section container">
+      <p class="section-eyebrow">Architecture</p>
+      <h2>Three Layers, One Platform</h2>
+      <div class="services-editorial">
+
+        <div class="service-col">
+          <span class="service-col-num">📱 01 ──</span>
+          <h3>Mobile App</h3>
+          <p>Two separate React Native apps — one for riders, one for drivers — sharing a single codebase and deployed to both iOS and Android simultaneously.</p>
+          <ul>
+            <li>Rider app: Book, track &amp; pay in-app</li>
+            <li>Driver app: Accept rides, navigation, earnings</li>
+            <li>Live location tracking on map</li>
+            <li>Push notifications for all booking events</li>
+            <li>App Store &amp; Play Store submission</li>
+          </ul>
+        </div>
+
+        <div class="service-col">
+          <span class="service-col-num">💻 02 ──</span>
+          <h3>Web Dashboard</h3>
+          <p>A Next.js admin panel giving the Jeloga operations team complete visibility over the platform — fleet, bookings, drivers, and revenue — from any browser.</p>
+          <ul>
+            <li>Live fleet map with driver positions</li>
+            <li>Booking management &amp; history</li>
+            <li>Driver onboarding &amp; verification</li>
+            <li>Revenue reports &amp; earnings breakdown</li>
+            <li>User management</li>
+          </ul>
+        </div>
+
+        <div class="service-col">
+          <span class="service-col-num">⚙️ 03 ──</span>
+          <h3>Backend &amp; APIs</h3>
+          <p>A Node.js REST API handling all the real-time logic — ride matching, location updates, payment processing, and notifications — built to scale as the user base grows.</p>
+          <ul>
+            <li>Ride matching &amp; dispatch logic</li>
+            <li>Firebase real-time location sync</li>
+            <li>Paystack payment integration</li>
+            <li>Driver-rider rating system</li>
+            <li>Deployed &amp; monitored in production</li>
+          </ul>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── Features ── -->
+    <section class="section container">
+      <p class="section-eyebrow">Features Built</p>
+      <h2>Everything a Ride-Sharing Platform Needs</h2>
+      <div class="case-features-grid">
+        <div class="case-feature">
+          <span class="case-feature-icon">📍</span>
+          <h4>Real-Time Tracking</h4>
+          <p>Live driver location updates on an interactive map — riders see exactly where their driver is, updated every second.</p>
+        </div>
+        <div class="case-feature">
+          <span class="case-feature-icon">💳</span>
+          <h4>In-App Payments</h4>
+          <p>Paystack integration lets riders pay fully in-app. Drivers see their earnings instantly after each completed ride.</p>
+        </div>
+        <div class="case-feature">
+          <span class="case-feature-icon">🔔</span>
+          <h4>Push Notifications</h4>
+          <p>Booking requests, driver arrivals, ride completions — every event triggers the right notification at the right moment.</p>
+        </div>
+        <div class="case-feature">
+          <span class="case-feature-icon">⭐</span>
+          <h4>Rating System</h4>
+          <p>Riders rate drivers and drivers rate riders after every trip — building platform trust and accountability over time.</p>
+        </div>
+        <div class="case-feature">
+          <span class="case-feature-icon">🛡️</span>
+          <h4>Driver Verification</h4>
+          <p>Drivers go through an approval workflow with document upload and admin review before accepting rides on the platform.</p>
+        </div>
+        <div class="case-feature">
+          <span class="case-feature-icon">📊</span>
+          <h4>Admin Dashboard</h4>
+          <p>Full operations control: live fleet view, trip history, driver management, revenue reports — all in a clean web interface.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Technology ── -->
+    <section class="section container">
+      <p class="section-eyebrow">Technology</p>
+      <h2>Built With</h2>
+      <div class="case-stack-wrap">
+        <span>React Native</span>
+        <span>Expo</span>
+        <span>TypeScript</span>
+        <span>Next.js</span>
+        <span>Node.js</span>
+        <span>REST APIs</span>
+        <span>Firebase</span>
+        <span>Paystack</span>
+        <span>PostgreSQL</span>
+        <span>Git &amp; GitHub</span>
+        <span>Vercel</span>
+      </div>
+    </section>
+
+    <!-- ── Results ── -->
+    <section class="section container">
+      <p class="section-eyebrow">Outcome</p>
+      <h2>What We Shipped</h2>
+      <div class="case-results-grid">
+        <div class="case-result-card">
+          <span class="case-result-num">&lt;3</span>
+          <span class="case-result-label">Months from kickoff to App Store launch</span>
+        </div>
+        <div class="case-result-card">
+          <span class="case-result-num">3</span>
+          <span class="case-result-label">Platforms delivered — iOS, Android &amp; Web</span>
+        </div>
+        <div class="case-result-card">
+          <span class="case-result-num">1</span>
+          <span class="case-result-label">Developer who built the entire platform solo</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Testimonial ── -->
+    <section class="section container">
+      <div class="testimonial-card" style="max-width:660px; margin:0 auto;">
+        <p class="testimonial-quote">"Jeph built our entire ride-sharing platform from scratch and delivered faster than we expected. The app is live, handling real bookings, and our users love it. Highly recommend."</p>
+        <div class="testimonial-author">
+          <div class="testimonial-dot"></div>
+          <div>
+            <span class="testimonial-name">Mr. Okezie</span>
+            <span class="testimonial-role">CEO, Jeloga</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── CTA ── -->
+    <section class="section container" style="text-align:center; padding-bottom:4rem;">
+      <p class="section-eyebrow">Next Step</p>
+      <h2>Got a Product Idea?</h2>
+      <p style="color:var(--muted); max-width:460px; margin:0 auto 2rem; line-height:1.75;">I build platforms like Jeloga. Tell me what you're building and I'll come back with a clear plan and quote within 24 hours.</p>
+      <div style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;">
+        <a href="contact.html" class="btn" style="font-size:1rem; padding:0.85rem 2rem;">Start Your Project</a>
+        <a href="projects.html" class="btn btn-ghost" style="font-size:1rem; padding:0.85rem 2rem;">More Projects</a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ══ FOOTER ══ -->
+  <footer class="footer">
+    <div class="container footer-content">
+      <p>© <span id="year"></span> jephdev. <span data-i18n="footer.rights">All rights reserved.</span></p>
+      <div class="socials">
+        <a href="https://github.com/jephcoded" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a href="https://linkedin.com/in/jephdev" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="mailto:jephcoding@gmail.com">Email</a>
+        <a href="https://wa.me/2349067069213" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

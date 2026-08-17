@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="JD favicon">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0f1512" />
+      <stop offset="100%" stop-color="#06120c" />
+    </linearGradient>
+    <linearGradient id="stroke" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#20df8f" />
+      <stop offset="100%" stop-color="#0aa95e" />
+    </linearGradient>
+  </defs>
+  <rect x="3" y="3" width="58" height="58" rx="14" fill="url(#bg)" stroke="url(#stroke)" stroke-width="3"/>
+  <circle cx="18" cy="18" r="2.2" fill="#8ef5c8" opacity="0.9"/>
+  <path d="M18 46h7V22h-7m16 0h-8v24h8c6.2 0 10-4.7 10-12s-3.8-12-10-12z" fill="none" stroke="#d8ffec" stroke-width="4.4" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

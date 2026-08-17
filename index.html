@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>jephdev | Mobile & Full-Stack Developer</title>
+  <link rel="icon" type="image/png" href="favicon.png" />
+  <meta name="description" content="jephdev — Mobile & Full-Stack developer. React Native, Next.js, Node.js. Available for hire." />
+  <meta property="og:title" content="jephdev | Mobile & Full-Stack Developer" />
+  <meta property="og:description" content="Building React Native apps and full-stack products. Available for your next project." />
+  <meta property="og:image" content="profile.png" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ══ NAV OVERLAY ══ -->
+  <div class="nav-overlay" id="navOverlay" role="dialog" aria-modal="true" aria-label="Navigation">
+    <div class="nav-overlay-inner">
+      <ul class="nav-overlay-links">
+        <li><a href="index.html" class="current"><span class="nav-num">01</span><span data-i18n="nav.home">Home</span></a></li>
+        <li><a href="about.html"><span class="nav-num">02</span><span data-i18n="nav.about">About</span></a></li>
+        <li><a href="projects.html"><span class="nav-num">03</span><span data-i18n="nav.projects">Projects</span></a></li>
+        <li><a href="services.html"><span class="nav-num">04</span><span data-i18n="nav.services">Services</span></a></li>
+        <li><a href="contact.html"><span class="nav-num">05</span><span data-i18n="nav.contact">Contact</span></a></li>
+      </ul>
+      <div class="nav-overlay-socials">
+        <a href="https://github.com/jephcoded" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a href="https://linkedin.com/in/jephdev" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="mailto:jephcoding@gmail.com">Email</a>
+        <a href="https://wa.me/2349067069213" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ HEADER ══ -->
+  <header class="header" id="siteHeader">
+    <nav class="nav container">
+      <a href="index.html" class="logo">jephdev<span>.</span></a>
+      <ul class="nav-links-inline">
+        <li><a href="index.html" class="current" data-i18n="nav.home">Home</a></li>
+        <li><a href="about.html" data-i18n="nav.about">About</a></li>
+        <li><a href="projects.html" data-i18n="nav.projects">Projects</a></li>
+        <li><a href="services.html" data-i18n="nav.services">Services</a></li>
+        <li><a href="contact.html" data-i18n="nav.contact">Contact</a></li>
+      </ul>
+      <div class="nav-right">
+        <a href="tel:+2349067069213" class="nav-phone">+234 906 706 9213</a>
+        <a href="contact.html" class="nav-cta-btn" data-i18n="nav.cta">Get a Quote</a>
+        <a href="https://github.com/jephcoded" class="nav-icon-btn" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="bi bi-github"></i></a>
+        <a href="https://wa.me/2349067069213" class="nav-icon-btn whatsapp-btn" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></a>
+        <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="navOverlay">
+          <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+        </button>
+        <div class="lang-switcher">
+          <button class="lang-btn active" data-lang="en">EN</button>
+          <button class="lang-btn" data-lang="fr">FR</button>
+          <button class="lang-btn" data-lang="es">ES</button>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero-full" id="hero">
+      <aside class="hero-social-bar" aria-label="Social links">
+        <div class="hero-social-line"></div>
+        <a href="https://github.com/jephcoded" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="bi bi-github"></i></a>
+        <a href="https://linkedin.com/in/jephdev" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+        <a href="https://wa.me/2349067069213" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></a>
+        <div class="hero-social-line"></div>
+      </aside>
+      <div class="hero-photo-panel" aria-hidden="true">
+        <img src="profile.png" alt="" class="hero-photo-img" loading="eager" />
+      </div>
+      <div class="hero-content">
+        <div class="hero-avail-tag">
+          <span class="hero-badge-dot"></span><span data-i18n="hero.badge">Available — Taking new projects</span>
+        </div>
+        <div class="hero-name-block">
+          <span class="hero-name-top">JEPH</span>
+          <span class="hero-name-big">DEV<span class="name-dot" aria-hidden="true"></span></span>
+        </div>
+        <p class="hero-tagline" id="heroTagline" data-i18n="hero.tagline">I don't just write code — I build products that generate real revenue.</p>
+        <div class="hero-tech-tags" aria-hidden="true">
+          <span>React Native</span><span>Next.js</span><span>Node.js</span><span>APIs</span><span>Payments</span><span>Admin Dashboards</span>
+        </div>
+        <div class="hero-actions" id="heroActions">
+          <a href="contact.html" class="btn" data-i18n="hero.cta1">Get a Project Quote</a>
+          <a href="projects.html" class="btn btn-ghost" data-i18n="hero.cta2">View My Work</a>
+        </div>
+        <p class="hero-trust">
+          <span data-i18n="hero.trust1">Free scoping call</span>
+          <span class="hero-trust-sep">·</span>
+          <span data-i18n="hero.trust2">Clear upfront quote</span>
+          <span class="hero-trust-sep">·</span>
+          <span data-i18n="hero.trust3">NDA on request</span>
+        </p>
+      </div>
+      <div class="hero-scroll" id="heroScroll" aria-hidden="true">
+        <span data-i18n="hero.scroll">scroll</span>
+        <div class="scroll-line"></div>
+      </div>
+    </section>
+
+    <!-- ── Stats ── -->
+    <section class="stats-section container">
+      <div class="stats-row">
+        <div class="stat-item">
+          <div class="stat-number-wrap"><span class="stat-number" data-target="10">10</span><span class="stat-suffix">+</span></div>
+          <span class="stat-label" data-i18n="stat.projects">Projects Built</span>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number-wrap"><span class="stat-number" data-target="8">8</span><span class="stat-suffix">+</span></div>
+          <span class="stat-label" data-i18n="stat.clients">Happy Clients</span>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number-wrap"><span class="stat-number" data-target="3">3</span><span class="stat-suffix">+</span></div>
+          <span class="stat-label" data-i18n="stat.years">Years Building</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Tech Marquee ── -->
+    <section class="tech-section">
+      <p class="tech-label">Stack</p>
+      <div class="tech-marquee">
+        <div class="tech-track" aria-hidden="true">
+          <span class="tech-chip"><span class="tech-chip-dot"></span>React Native</span>
+          <span class="tech-chip"><span class="tech-chip-dot"></span>Next.js</span>
+          <span class="tech-chip"><span class="tech-chip-dot"></span>Node.js</span>
+          <span class="tech-chip"><span class="tech-chip-dot"></span>TypeScript</span>
+          <span class="tech-chip tech-chip--ai"><span class="tech-chip-dot"></span>Claude API</span>
+          <span class="tech-chip tech-chip--ai"><span class="tech-chip-dot"></span>OpenAI</span>
+          <span class="tech-chip"><span class="tech-chip-dot"></span>Firebase</span>
+          <span class="tech-chip"><span class="tech-chip-dot"></span>Supabase</span>
+          <span class="tech-chip tech-chip--ai"><span class="tech-chip-dot"></span>AI Integration</span>
+          <span class="tech-chip"><span class="tech-chip-dot"></span>REST APIs</span>
+          <span class="tech-chip"><span class="tech-chip-dot"></span>React</span>
+          <span class="tech-chip"><span class="tech-chip-dot"></span>Git &amp; GitHub</span>
+          <span class="tech-chip tech-chip--ai"><span class="tech-chip-dot"></span>Prompt Engineering</span>
+          <span class="tech-chip"><span class="tech-chip-dot"></span>Figma</span>
+          <span class="tech-chip"><span class="tech-chip-dot"></span>React Native</span>
+          <span class="tech-chip"><span class="tech-chip-dot"></span>Next.js</span>
+          <span class="tech-chip"><span class="tech-chip-dot"></span>Node.js</span>
+          <span class="tech-chip"><span class="tech-chip-dot"></span>TypeScript</span>
+          <span class="tech-chip tech-chip--ai"><span class="tech-chip-dot"></span>Claude API</span>
+          <span class="tech-chip tech-chip--ai"><span class="tech-chip-dot"></span>OpenAI</span>
+          <span class="tech-chip"><span class="tech-chip-dot"></span>Firebase</span>
+          <span class="tech-chip"><span class="tech-chip-dot"></span>Supabase</span>
+          <span class="tech-chip tech-chip--ai"><span class="tech-chip-dot"></span>AI Integration</span>
+          <span class="tech-chip"><span class="tech-chip-dot"></span>REST APIs</span>
+          <span class="tech-chip"><span class="tech-chip-dot"></span>React</span>
+          <span class="tech-chip"><span class="tech-chip-dot"></span>Git &amp; GitHub</span>
+          <span class="tech-chip tech-chip--ai"><span class="tech-chip-dot"></span>Prompt Engineering</span>
+          <span class="tech-chip"><span class="tech-chip-dot"></span>Figma</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── What I Build ── -->
+    <section class="section container">
+      <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:0.5rem;">
+        <p class="section-eyebrow" style="margin:0;" data-i18n="svc.eyebrow">Services</p>
+        <a href="services.html" class="text-link" style="font-size:0.85rem;" data-i18n="svc.all">All Services →</a>
+      </div>
+      <h2 data-i18n="svc.title">What I Build</h2>
+      <div class="services-editorial">
+        <div class="service-col">
+          <span class="service-col-num">📱 01 ──</span>
+          <h3 data-i18n="svc1.title">Mobile Apps</h3>
+          <p data-i18n="svc1.desc">Your customers download it, use it, and pay through it — on iPhone and Android. I handle everything from first screen to App Store launch.</p>
+          <ul>
+            <li data-i18n="svc1.li1">Works on iOS &amp; Android</li>
+            <li data-i18n="svc1.li2">Login, payments &amp; notifications</li>
+            <li data-i18n="svc1.li3">App Store &amp; Play Store launch</li>
+          </ul>
+        </div>
+        <div class="service-col">
+          <span class="service-col-num">💻 02 ──</span>
+          <h3 data-i18n="svc2.title">Web Platforms</h3>
+          <p data-i18n="svc2.desc">Customer portals, SaaS dashboards, booking systems — web products that run your business and handle real traffic from day one.</p>
+          <ul>
+            <li data-i18n="svc2.li1">Fast, modern frontend</li>
+            <li data-i18n="svc2.li2">Secure backend &amp; database</li>
+            <li data-i18n="svc2.li3">Fully hosted &amp; deployed</li>
+          </ul>
+        </div>
+        <div class="service-col">
+          <span class="service-col-num">⚙️ 03 ──</span>
+          <h3 data-i18n="svc3.title">Integrations</h3>
+          <p data-i18n="svc3.desc">Need your product to connect to payment gateways, WhatsApp, or other tools? I wire everything together so your business runs automatically.</p>
+          <ul>
+            <li data-i18n="svc3.li1">Payments (Stripe, Paystack)</li>
+            <li data-i18n="svc3.li2">Third-party tools &amp; APIs</li>
+            <li data-i18n="svc3.li3">Automations &amp; webhooks</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Selected Work ── -->
+    <section class="section container">
+      <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:0.5rem;">
+        <p class="section-eyebrow" style="margin:0;" data-i18n="work.eyebrow">Work</p>
+        <a href="projects.html" class="text-link" style="font-size:0.85rem;" data-i18n="work.all">All Projects →</a>
+      </div>
+      <h2 data-i18n="work.title">Selected Work</h2>
+
+      <div class="work-visual-list">
+
+        <a href="jeloga.html" class="work-visual-item">
+          <div class="work-visual-left">
+            <span class="work-num">01</span>
+            <div class="work-info">
+              <h3 data-i18n="work1.title">Jeloga</h3>
+              <p data-i18n="work1.desc">Built a complete ride-sharing platform — mobile app, web dashboard &amp; live backend. Real bookings, real drivers, real revenue across Nigeria.</p>
+              <div class="stack-tags" style="margin-top:0.5rem;">
+                <span>React Native</span><span>Next.js</span><span>Node.js</span>
+              </div>
+              <span style="display:inline-block; margin-top:0.75rem; font-size:0.78rem; font-family:var(--font-mono); color:var(--muted); letter-spacing:0.04em;" data-i18n="work1.cs">Read Case Study →</span>
+            </div>
+          </div>
+          <div class="work-visual-right">
+            <img src="jeloga.png" alt="Jeloga preview" class="work-thumb" loading="lazy" />
+            <span class="work-arrow-badge">→</span>
+          </div>
+        </a>
+
+        <a href="https://stulovax.com" target="_blank" rel="noopener noreferrer" class="work-visual-item">
+          <div class="work-visual-left">
+            <span class="work-num">02</span>
+            <div class="work-info">
+              <h3 data-i18n="work2.title">Stulovax</h3>
+              <p data-i18n="work2.desc">Remote operations platform letting overseas founders manage Nigerian staff, track performance &amp; oversee business — from anywhere in the world.</p>
+              <div class="stack-tags" style="margin-top:0.5rem;">
+                <span>Next.js</span><span>React</span><span>Node.js</span>
+              </div>
+            </div>
+          </div>
+          <div class="work-visual-right">
+            <img src="stulovax2.png" alt="Stulovax preview" class="work-thumb" loading="lazy" />
+            <span class="work-arrow-badge">↗</span>
+          </div>
+        </a>
+
+        <a href="https://kickgrid.live" target="_blank" rel="noopener noreferrer" class="work-visual-item">
+          <div class="work-visual-left">
+            <span class="work-num">03</span>
+            <div class="work-info">
+              <h3 data-i18n="work3.title">Kickgrid</h3>
+              <p data-i18n="work3.desc">Real-time World Cup fan platform — live scores, match predictions, and community discussion. Built and deployed solo.</p>
+              <div class="stack-tags" style="margin-top:0.5rem;">
+                <span>Next.js</span><span>React</span><span>Node.js</span>
+              </div>
+            </div>
+          </div>
+          <div class="work-visual-right">
+            <img src="kickgrid.png" alt="Kickgrid preview" class="work-thumb" loading="lazy" />
+            <span class="work-arrow-badge">↗</span>
+          </div>
+        </a>
+
+        <a href="contact.html" class="work-visual-item">
+          <div class="work-visual-left">
+            <span class="work-num">04</span>
+            <div class="work-info">
+              <h3 data-i18n="work4.title">Your Project?</h3>
+              <p data-i18n="work4.desc">Available now for mobile or full-stack builds. Let's make something real.</p>
+            </div>
+          </div>
+          <div class="work-visual-right">
+            <div class="work-thumb-placeholder">
+              <span style="font-size:0.65rem; letter-spacing:2px; text-transform:uppercase; color:var(--text); font-weight:700; opacity:0.7;" data-i18n="work4.avail">Available</span>
+              <span style="font-size:1.4rem; color:var(--text);">↗</span>
+            </div>
+          </div>
+        </a>
+
+      </div>
+    </section>
+
+    <!-- ── Testimonials ── -->
+    <section class="section container">
+      <p class="section-eyebrow" data-i18n="testi.eyebrow">Client Words</p>
+      <h2 data-i18n="testi.title">What Clients Say</h2>
+      <div class="testimonials-grid">
+
+        <div class="testimonial-card">
+          <p class="testimonial-quote" data-i18n="testi1.quote">"Jeph built our entire ride-sharing platform from scratch and delivered faster than we expected. The app is live, handling real bookings, and our users love it. Highly recommend."</p>
+          <div class="testimonial-author">
+            <div class="testimonial-dot"></div>
+            <div>
+              <span class="testimonial-name" data-i18n="testi1.name">Mr. Okezie</span>
+              <span class="testimonial-role" data-i18n="testi1.role">CEO, Jeloga</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <p class="testimonial-quote" data-i18n="testi2.quote">"Very fast, very professional. Jeph understood exactly what we needed and delivered a clean, working product. He didn't just code — he thought about the business."</p>
+          <div class="testimonial-author">
+            <div class="testimonial-dot"></div>
+            <div>
+              <span class="testimonial-name" data-i18n="testi2.name">Mr. Remi</span>
+              <span class="testimonial-role" data-i18n="testi2.role">Founder, Stulovax</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <p class="testimonial-quote" data-i18n="testi3.quote">"I've worked with developers before but Jeph is different — he delivers exactly what he promises, on time. My platform was live within weeks. Truly reliable."</p>
+          <div class="testimonial-author">
+            <div class="testimonial-dot"></div>
+            <div>
+              <span class="testimonial-name" data-i18n="testi3.name">Mr. Chidi</span>
+              <span class="testimonial-role" data-i18n="testi3.role">Business Owner, Lagos</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-content">
+      <p>© <span id="year"></span> jephdev. <span data-i18n="footer.rights">All rights reserved.</span></p>
+      <div class="socials">
+        <a href="https://github.com/jephcoded" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a href="https://linkedin.com/in/jephdev" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="mailto:jephcoding@gmail.com">Email</a>
+        <a href="https://wa.me/2349067069213" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

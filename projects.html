@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projects | jephdev</title>
+  <link rel="icon" type="image/png" href="favicon.png" />
+  <link rel="shortcut icon" href="favicon.png" />
+  <meta name="description" content="Projects by jephdev — live products and demo builds across mobile and full-stack." />
+  <meta property="og:title" content="Projects | jephdev" />
+  <meta property="og:description" content="Live products and demo builds — React Native, Next.js, Node.js." />
+  <meta property="og:image" content="jeloga.png" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="stylesheet" href="styles.css" />
+
+  <style>
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+      margin-top: 1.6rem;
+    }
+    .project-card {
+      background: var(--bg-2);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .project-card:hover {
+      border-color: rgba(255, 255, 255, 0.45);
+      transform: translateY(-5px);
+      box-shadow: 0 24px 60px rgba(0,0,0,0.45), 0 0 0 1px rgba(255,255,255,0.12);
+    }
+    .project-card-body {
+      padding: 1.4rem 1.4rem 1.6rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.45rem;
+      flex: 1;
+    }
+    .project-card-body h3 {
+      font-family: var(--font-display);
+      font-size: 2.1rem;
+      font-weight: 400;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin: 0;
+      line-height: 1;
+    }
+    .project-card-body p {
+      color: var(--muted);
+      font-size: 0.87rem;
+      line-height: 1.78;
+      margin: 0;
+    }
+    .project-card-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.6rem;
+      margin-top: auto;
+      padding-top: 1rem;
+      border-top: 1px solid var(--border);
+    }
+    .project-live-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--accent);
+      text-decoration: none;
+      letter-spacing: 0.5px;
+      transition: opacity 0.2s;
+    }
+    .project-live-link:hover { opacity: 0.7; }
+    .badge-live {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--accent);
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.3);
+      border-radius: 4px;
+      padding: 0.22rem 0.55rem;
+    }
+    .badge-demo {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--muted);
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 4px;
+      padding: 0.22rem 0.55rem;
+    }
+    .jeloga-feature {
+      background: var(--bg-2);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      overflow: hidden;
+      transition: border-color 0.3s ease;
+    }
+    .jeloga-feature:hover { border-color: rgba(255,255,255,0.35); }
+    .jeloga-feature-body {
+      padding: 1.8rem 2rem 2rem;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 1rem 2.5rem;
+      align-items: start;
+    }
+    .jeloga-feature-body h2 {
+      font-family: var(--font-display);
+      font-size: clamp(3rem, 6vw, 5.5rem);
+      font-weight: 400;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      line-height: 0.9;
+      margin: 0 0 0.7rem;
+    }
+    .jeloga-feature-body p {
+      color: var(--muted);
+      font-size: 0.93rem;
+      line-height: 1.82;
+      margin: 0;
+      max-width: 500px;
+    }
+    .jeloga-links {
+      display: flex;
+      flex-direction: column;
+      gap: 0.7rem;
+      align-items: flex-end;
+      white-space: nowrap;
+    }
+    .projects-sep {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin: 3.5rem 0 0;
+    }
+    .projects-sep::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+    .project-card-cta {
+      background: rgba(255,255,255,0.03);
+      border: 1px dashed rgba(255,255,255,0.22);
+      border-radius: 16px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 2.5rem 2rem;
+      min-height: 260px;
+      gap: 0.5rem;
+      text-decoration: none;
+      color: var(--text);
+      transition: border-color 0.3s ease, background 0.3s ease, transform 0.3s ease;
+    }
+    .project-card-cta:hover {
+      border-color: rgba(255,255,255,0.5);
+      background: rgba(255,255,255,0.06);
+      transform: translateY(-4px);
+    }
+    @media (max-width: 860px) {
+      .projects-grid { grid-template-columns: 1fr; }
+      .jeloga-feature-body { grid-template-columns: 1fr; padding: 1.4rem; }
+      .jeloga-links { align-items: flex-start; flex-direction: row; flex-wrap: wrap; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="nav-overlay" id="navOverlay" role="dialog" aria-modal="true" aria-label="Navigation">
+    <div class="nav-overlay-inner">
+      <ul class="nav-overlay-links">
+        <li><a href="index.html"><span class="nav-num">01</span><span data-i18n="nav.home">Home</span></a></li>
+        <li><a href="about.html"><span class="nav-num">02</span><span data-i18n="nav.about">About</span></a></li>
+        <li><a href="projects.html" class="current"><span class="nav-num">03</span><span data-i18n="nav.projects">Projects</span></a></li>
+        <li><a href="services.html"><span class="nav-num">04</span><span data-i18n="nav.services">Services</span></a></li>
+        <li><a href="contact.html"><span class="nav-num">05</span><span data-i18n="nav.contact">Contact</span></a></li>
+      </ul>
+      <div class="nav-overlay-socials">
+        <a href="https://github.com/jephcoded" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a href="https://linkedin.com/in/jephdev" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="mailto:jephcoding@gmail.com">Email</a>
+        <a href="https://wa.me/2349067069213" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+      </div>
+    </div>
+  </div>
+
+  <header class="header" id="siteHeader">
+    <nav class="nav container">
+      <a href="index.html" class="logo">jephdev<span>.</span></a>
+      <ul class="nav-links-inline">
+        <li><a href="index.html" data-i18n="nav.home">Home</a></li>
+        <li><a href="about.html" data-i18n="nav.about">About</a></li>
+        <li><a href="projects.html" class="current" data-i18n="nav.projects">Projects</a></li>
+        <li><a href="services.html" data-i18n="nav.services">Services</a></li>
+        <li><a href="contact.html" data-i18n="nav.contact">Contact</a></li>
+      </ul>
+      <div class="nav-right">
+        <a href="tel:+2349067069213" class="nav-phone">+234 906 706 9213</a>
+        <a href="contact.html" class="nav-cta-btn" data-i18n="nav.cta">Get a Quote</a>
+        <a href="https://github.com/jephcoded" class="nav-icon-btn" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="bi bi-github"></i></a>
+        <a href="https://wa.me/2349067069213" class="nav-icon-btn whatsapp-btn" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></a>
+        <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="navOverlay">
+          <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+        </button>
+        <div class="lang-switcher">
+          <button class="lang-btn active" data-lang="en">EN</button>
+          <button class="lang-btn" data-lang="fr">FR</button>
+          <button class="lang-btn" data-lang="es">ES</button>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main class="page-main">
+
+    <section class="page-hero container">
+      <p class="section-eyebrow" data-i18n="proj.eyebrow">Work</p>
+      <h1 data-i18n="proj.title">Projects.</h1>
+      <p data-i18n="proj.sub">Live products and demo builds — real code, real users, real results.</p>
+    </section>
+
+    <section class="section container">
+      <p class="section-eyebrow" style="margin-bottom:1rem;" data-i18n="feat.eyebrow">Featured</p>
+
+      <div class="jeloga-feature" id="featuredProject">
+        <img src="jeloga.png" alt="Jeloga app preview" style="width:100%;height:100%;object-fit:cover;border-radius:inherit;" />
+        <div class="jeloga-feature-body">
+          <div>
+            <div style="display:flex; align-items:center; gap:0.7rem; margin-bottom:0.5rem;">
+              <span class="badge-live">● <span data-i18n="badge.live">Live</span></span>
+            </div>
+
+            <h2>Jeloga.</h2>
+            <p data-i18n="jeloga.desc">Built a complete ride-sharing platform from zero — mobile app, web dashboard, and live backend handling real bookings, real drivers, and real revenue. Launched on the App Store and went live in under 3 months.</p>
+            <div class="stack-tags" style="margin-top:1rem;">
+              <span>React Native</span><span>Next.js</span><span>Node.js</span><span>Firebase</span>
+            </div>
+          </div>
+          <div class="jeloga-links">
+            <a href="jeloga.html" class="btn" data-i18n="jeloga.cs">Read Case Study →</a>
+            <a href="https://jeloga.ng" target="_blank" rel="noopener noreferrer" class="btn btn-ghost" data-i18n="jeloga.live">↗ Live Site</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section container">
+      <div class="projects-sep">
+        <p class="section-eyebrow" style="margin:0;" data-i18n="live.eyebrow">Live Products</p>
+      </div>
+
+      <div class="projects-grid">
+
+        <div class="project-card">
+          <div class="project-card-media">
+            <img class="project-card-thumb" src="stulovax2.png" alt="Stulovax — Business management platform" loading="lazy" />
+          </div>
+          <div class="project-card-body">
+            <h3 data-i18n="stx.title">Stulovax.</h3>
+            <p data-i18n="stx.desc">Built a remote operations platform that lets overseas founders securely oversee Nigerian business operations, manage staff, and track performance in real time — without being physically present.</p>
+            <div class="stack-tags" style="margin-top:0.3rem;">
+              <span>Next.js</span><span>React</span><span>Node.js</span>
+            </div>
+            <div class="project-card-footer">
+              <span class="badge-live">● <span data-i18n="badge.live">Live</span></span>
+              <a href="https://stulovax.com" target="_blank" rel="noopener noreferrer" class="project-live-link">↗ stulovax.com</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-card-media">
+            <img class="project-card-thumb" src="kickgrid.png" alt="Kickgrid — FIFA World Cup Fan Platform" loading="lazy" />
+          </div>
+          <div class="project-card-body">
+            <h3 data-i18n="kg.title">Kickgrid.</h3>
+            <p data-i18n="kg.desc">2026 FIFA World Cup fan platform — live scores, predictions, and community features built for football fans worldwide.</p>
+            <div class="stack-tags" style="margin-top:0.3rem;">
+              <span>Next.js</span><span>React</span><span>Node.js</span>
+            </div>
+            <div class="project-card-footer">
+              <span class="badge-live">● <span data-i18n="badge.live">Live</span></span>
+              <a href="https://kickgrid.live" target="_blank" rel="noopener noreferrer" class="project-live-link">↗ kickgrid.live</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <section class="section container" style="padding-top:0;">
+      <a href="contact.html" class="project-card-cta">
+        <p class="section-eyebrow" style="margin:0 0 0.4rem;" data-i18n="proj.cta.eyebrow">Next Up</p>
+        <h3 style="font-family:var(--font-display); font-size:2.6rem; text-transform:uppercase; margin:0 0 0.6rem; line-height:1;" data-i18n="proj.cta.title">Your Project?</h3>
+        <p style="color:var(--muted); font-size:0.87rem; margin:0 0 1.4rem; max-width:260px;" data-i18n="proj.cta.desc">Available for mobile or full-stack builds. Let's make something worth showing here.</p>
+        <span class="btn" data-i18n="proj.cta.btn">Let's Talk ↗</span>
+      </a>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-content">
+      <p>© <span id="year"></span> jephdev. <span data-i18n="footer.rights">All rights reserved.</span></p>
+      <div class="socials">
+        <a href="https://github.com/jephcoded" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a href="https://linkedin.com/in/jephdev" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="mailto:jephcoding@gmail.com">Email</a>
+        <a href="https://wa.me/2349067069213" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

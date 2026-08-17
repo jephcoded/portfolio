@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact | jephdev</title>
+  <link rel="icon" type="image/png" href="favicon.png" />
+  <link rel="shortcut icon" href="favicon.png" />
+  <meta name="description" content="Contact jephdev for mobile app and full-stack development work. Fast replies, project-ready." />
+  <meta property="og:title" content="Contact | jephdev" />
+  <meta property="og:description" content="Let's build your mobile or full-stack product. Get in touch." />
+  <meta property="og:image" content="profile.png" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <div class="nav-overlay" id="navOverlay" role="dialog" aria-modal="true" aria-label="Navigation">
+    <div class="nav-overlay-inner">
+      <ul class="nav-overlay-links">
+        <li><a href="index.html"><span class="nav-num">01</span><span data-i18n="nav.home">Home</span></a></li>
+        <li><a href="about.html"><span class="nav-num">02</span><span data-i18n="nav.about">About</span></a></li>
+        <li><a href="projects.html"><span class="nav-num">03</span><span data-i18n="nav.projects">Projects</span></a></li>
+        <li><a href="services.html"><span class="nav-num">04</span><span data-i18n="nav.services">Services</span></a></li>
+        <li><a href="contact.html" class="current"><span class="nav-num">05</span><span data-i18n="nav.contact">Contact</span></a></li>
+      </ul>
+      <div class="nav-overlay-socials">
+        <a href="https://github.com/jephcoded" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a href="https://linkedin.com/in/jephdev" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="mailto:jephcoding@gmail.com">Email</a>
+        <a href="https://wa.me/2349067069213" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+      </div>
+    </div>
+  </div>
+
+  <header class="header" id="siteHeader">
+    <nav class="nav container">
+      <a href="index.html" class="logo">jephdev<span>.</span></a>
+      <ul class="nav-links-inline">
+        <li><a href="index.html" data-i18n="nav.home">Home</a></li>
+        <li><a href="about.html" data-i18n="nav.about">About</a></li>
+        <li><a href="projects.html" data-i18n="nav.projects">Projects</a></li>
+        <li><a href="services.html" data-i18n="nav.services">Services</a></li>
+        <li><a href="contact.html" class="current" data-i18n="nav.contact">Contact</a></li>
+      </ul>
+      <div class="nav-right">
+        <a href="tel:+2349067069213" class="nav-phone">+234 906 706 9213</a>
+        <a href="https://github.com/jephcoded" class="nav-icon-btn" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="bi bi-github"></i></a>
+        <a href="https://wa.me/2349067069213" class="nav-icon-btn whatsapp-btn" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></a>
+        <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="navOverlay">
+          <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+        </button>
+        <div class="lang-switcher">
+          <button class="lang-btn active" data-lang="en">EN</button>
+          <button class="lang-btn" data-lang="fr">FR</button>
+          <button class="lang-btn" data-lang="es">ES</button>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main class="page-main">
+
+    <section class="page-hero container">
+      <div style="display:flex; flex-wrap:wrap; gap:0.6rem; margin-bottom:1rem;">
+        <span class="case-badge" data-i18n="contact.worldwide">Available for remote projects worldwide</span>
+        <span class="case-badge" data-i18n="contact.timezone">Responds within 24 hours — any timezone</span>
+      </div>
+      <p class="section-eyebrow" data-i18n="contact.eyebrow">Contact</p>
+      <h1 data-i18n="contact.title">Let's Talk.</h1>
+      <p data-i18n="contact.sub">Share your goals and I'll reply within 24 hours with a clear plan and quote.</p>
+    </section>
+
+    <section class="container">
+      <div class="contact-layout">
+
+        <div>
+          <form class="contact-form" id="contactForm" data-formspree-id="YOUR_FORM_ID">
+            <label>
+              <span data-i18n="form.name">Name</span>
+              <input type="text" name="name" data-i18n="form.name.ph" placeholder="Your name" required autocomplete="name" />
+            </label>
+            <label>
+              <span data-i18n="form.email">Email</span>
+              <input type="email" name="email" data-i18n="form.email.ph" placeholder="your@email.com" required autocomplete="email" />
+            </label>
+            <label>
+              <span data-i18n="form.message">What are you building?</span>
+              <textarea name="message" rows="6" data-i18n="form.message.ph" placeholder="Describe your project, goals, and rough timeline..." required></textarea>
+            </label>
+            <button type="submit" class="btn" id="submitBtn" style="width:100%; justify-content:center; text-align:center;" data-i18n="form.submit">Send Message</button>
+            <div class="form-success" id="formSuccess" style="display:none; margin-top:1rem; padding:1.1rem 1.2rem; background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.18); border-radius:8px; color:var(--text); font-weight:600; font-size:0.92rem;">
+              <span data-i18n="form.success">✓ Message sent! I'll get back to you within 24 hours.</span>
+            </div>
+            <p class="form-note" id="formNote" style="color:var(--muted); font-size:0.84rem; margin-top:0.6rem;"></p>
+          </form>
+        </div>
+
+        <aside>
+          <span class="contact-sidebar-title" data-i18n="contact.sidebar">Or reach out directly</span>
+
+          <a href="https://wa.me/2349067069213?text=Hi%20jephdev,%20I%20want%20to%20work%20with%20you" class="quick-link" target="_blank" rel="noopener noreferrer">
+            <span class="quick-link-icon">💬</span>
+            <span class="quick-link-text">
+              <span data-i18n="contact.wa.label">WhatsApp</span>
+              <span class="quick-link-label" data-i18n="contact.wa.sub">Fastest response</span>
+            </span>
+            <span style="color:var(--text); font-size:0.9rem; opacity:0.6;">↗</span>
+          </a>
+
+          <a href="mailto:jephcoding@gmail.com" class="quick-link">
+            <span class="quick-link-icon">✉️</span>
+            <span class="quick-link-text">
+              <span>jephcoding@gmail.com</span>
+              <span class="quick-link-label" data-i18n="contact.email.sub">Email me directly</span>
+            </span>
+            <span style="color:var(--text); font-size:0.9rem; opacity:0.6;">↗</span>
+          </a>
+
+          <a href="https://github.com/jephcoded" class="quick-link" target="_blank" rel="noopener noreferrer">
+            <span class="quick-link-icon">🐙</span>
+            <span class="quick-link-text">
+              <span data-i18n="contact.gh.label">GitHub</span>
+              <span class="quick-link-label" data-i18n="contact.gh.sub">See my code</span>
+            </span>
+            <span style="color:var(--text); font-size:0.9rem; opacity:0.6;">↗</span>
+          </a>
+
+          <a href="https://linkedin.com/in/jephdev" class="quick-link" target="_blank" rel="noopener noreferrer">
+            <span class="quick-link-icon">💼</span>
+            <span class="quick-link-text">
+              <span data-i18n="contact.li.label">LinkedIn</span>
+              <span class="quick-link-label" data-i18n="contact.li.sub">Professional profile</span>
+            </span>
+            <span style="color:var(--text); font-size:0.9rem; opacity:0.6;">↗</span>
+          </a>
+        </aside>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-content">
+      <p>© <span id="year"></span> jephdev. <span data-i18n="footer.rights">All rights reserved.</span></p>
+      <div class="socials">
+        <a href="https://github.com/jephcoded" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a href="https://linkedin.com/in/jephdev" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="mailto:jephcoding@gmail.com">Email</a>
+        <a href="https://wa.me/2349067069213" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

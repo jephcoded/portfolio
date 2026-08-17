@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About | jephdev</title>
+  <link rel="icon" type="image/png" href="favicon.png" />
+  <link rel="shortcut icon" href="favicon.png" />
+  <meta name="description" content="About jephdev — Mobile & Full-Stack developer specializing in React Native and Next.js." />
+  <meta property="og:title" content="About | jephdev" />
+  <meta property="og:description" content="Mobile & Full-Stack developer. React Native, Next.js, Node.js — building products that ship." />
+  <meta property="og:image" content="profile.png" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <div class="nav-overlay" id="navOverlay" role="dialog" aria-modal="true" aria-label="Navigation">
+    <div class="nav-overlay-inner">
+      <ul class="nav-overlay-links">
+        <li><a href="index.html"><span class="nav-num">01</span><span data-i18n="nav.home">Home</span></a></li>
+        <li><a href="about.html" class="current"><span class="nav-num">02</span><span data-i18n="nav.about">About</span></a></li>
+        <li><a href="projects.html"><span class="nav-num">03</span><span data-i18n="nav.projects">Projects</span></a></li>
+        <li><a href="services.html"><span class="nav-num">04</span><span data-i18n="nav.services">Services</span></a></li>
+        <li><a href="contact.html"><span class="nav-num">05</span><span data-i18n="nav.contact">Contact</span></a></li>
+      </ul>
+      <div class="nav-overlay-socials">
+        <a href="https://github.com/jephcoded" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a href="https://linkedin.com/in/jephdev" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="mailto:jephcoding@gmail.com">Email</a>
+        <a href="https://wa.me/2349067069213" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+      </div>
+    </div>
+  </div>
+
+  <header class="header" id="siteHeader">
+    <nav class="nav container">
+      <a href="index.html" class="logo">jephdev<span>.</span></a>
+      <ul class="nav-links-inline">
+        <li><a href="index.html" data-i18n="nav.home">Home</a></li>
+        <li><a href="about.html" class="current" data-i18n="nav.about">About</a></li>
+        <li><a href="projects.html" data-i18n="nav.projects">Projects</a></li>
+        <li><a href="services.html" data-i18n="nav.services">Services</a></li>
+        <li><a href="contact.html" data-i18n="nav.contact">Contact</a></li>
+      </ul>
+      <div class="nav-right">
+        <a href="tel:+2349067069213" class="nav-phone">+234 906 706 9213</a>
+        <a href="contact.html" class="nav-cta-btn" data-i18n="nav.cta">Get a Quote</a>
+        <a href="https://github.com/jephcoded" class="nav-icon-btn" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="bi bi-github"></i></a>
+        <a href="https://wa.me/2349067069213" class="nav-icon-btn whatsapp-btn" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></a>
+        <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="navOverlay">
+          <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+        </button>
+        <div class="lang-switcher">
+          <button class="lang-btn active" data-lang="en">EN</button>
+          <button class="lang-btn" data-lang="fr">FR</button>
+          <button class="lang-btn" data-lang="es">ES</button>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main class="page-main">
+
+    <section class="about-hero container">
+      <div class="about-layout">
+
+        <div class="about-photo-wrap">
+          <img src="profile.png" alt="jephdev — Mobile & Full-Stack Developer" class="about-photo" />
+          <div class="about-photo-glow"></div>
+        </div>
+
+        <div class="about-copy">
+          <p class="section-eyebrow" data-i18n="about.eyebrow">About Me</p>
+          <h1 data-i18n="about.title">I Build Things<br>That Come to Life.</h1>
+          <p class="bio" data-i18n="about.bio1">
+            I'm <strong>jephdev</strong> — what drives me isn't the code itself.
+            It's the moment an idea becomes a real product that real people use.
+            Watching something go from a conversation to a live app someone downloads — that never gets old.
+          </p>
+          <p class="bio" data-i18n="about.bio2">
+            I've learned that the best products come from thinking like a founder, not just a developer.
+            Before I write a line of code, I want to understand what success looks like for the business.
+            I push back when something won't serve the product. I care what happens after launch — not just at delivery.
+          </p>
+          <p class="bio" data-i18n="about.bio3">
+            If you have an idea worth making real, I'm available now for mobile and full-stack builds.
+          </p>
+          <div class="about-actions">
+            <a href="projects.html" class="btn" data-i18n="about.btn1">See My Work</a>
+            <a href="contact.html" class="btn btn-ghost" data-i18n="about.btn2">Get In Touch</a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="stack-section container">
+      <p class="section-eyebrow" data-i18n="stack.eyebrow">Tech Stack</p>
+      <h2 data-i18n="stack.title">Tools I Work With</h2>
+
+      <div class="stack-groups">
+
+        <div class="stack-group">
+          <p class="stack-group-title" data-i18n="stack.mobile">Mobile</p>
+          <div class="tech-grid">
+            <span class="tech-grid-chip"><span class="tech-chip-dot"></span>React Native</span>
+            <span class="tech-grid-chip"><span class="tech-chip-dot"></span>Expo</span>
+            <span class="tech-grid-chip"><span class="tech-chip-dot"></span>iOS &amp; Android</span>
+            <span class="tech-grid-chip"><span class="tech-chip-dot"></span>TypeScript</span>
+          </div>
+        </div>
+
+        <div class="stack-group">
+          <p class="stack-group-title" data-i18n="stack.web">Web &amp; Backend</p>
+          <div class="tech-grid">
+            <span class="tech-grid-chip"><span class="tech-chip-dot"></span>Next.js</span>
+            <span class="tech-grid-chip"><span class="tech-chip-dot"></span>React</span>
+            <span class="tech-grid-chip"><span class="tech-chip-dot"></span>Node.js</span>
+            <span class="tech-grid-chip"><span class="tech-chip-dot"></span>REST APIs</span>
+          </div>
+        </div>
+
+        <div class="stack-group">
+          <p class="stack-group-title" data-i18n="stack.db">Database &amp; Services</p>
+          <div class="tech-grid">
+            <span class="tech-grid-chip"><span class="tech-chip-dot"></span>Firebase</span>
+            <span class="tech-grid-chip"><span class="tech-chip-dot"></span>Supabase</span>
+            <span class="tech-grid-chip"><span class="tech-chip-dot"></span>PostgreSQL</span>
+            <span class="tech-grid-chip"><span class="tech-chip-dot"></span>MongoDB</span>
+          </div>
+        </div>
+
+        <div class="stack-group">
+          <p class="stack-group-title" data-i18n="stack.tools">Tooling &amp; Workflow</p>
+          <div class="tech-grid">
+            <span class="tech-grid-chip"><span class="tech-chip-dot"></span>Git &amp; GitHub</span>
+            <span class="tech-grid-chip"><span class="tech-chip-dot"></span>Figma</span>
+            <span class="tech-grid-chip"><span class="tech-chip-dot"></span>VS Code</span>
+            <span class="tech-grid-chip"><span class="tech-chip-dot"></span>Vercel</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-content">
+      <p>© <span id="year"></span> jephdev. <span data-i18n="footer.rights">All rights reserved.</span></p>
+      <div class="socials">
+        <a href="https://github.com/jephcoded" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a href="https://linkedin.com/in/jephdev" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="mailto:jephcoding@gmail.com">Email</a>
+        <a href="https://wa.me/2349067069213" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
