@@ -4,7 +4,7 @@ Personal portfolio for **jephdev** (Jephthah Eluwaokezie), a Mobile & Full-Stack
 
 > "I don't just write code — I build products that generate real revenue."
 
-**Live site:** [jephdev.netlify.app](https://jephdev.netlify.app)
+**Live site:** [jephcoded.com](https://jephcoded.com)
 
 ---
 
