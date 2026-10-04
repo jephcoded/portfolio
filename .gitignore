@@ -3,3 +3,10 @@ Thumbs.db
 *.log
 node_modules/
 .env
+
+# Local Netlify folder
+.netlify
+
+# Raw screen recording of Connect (shows browser tabs) — only the cut connect.mp4 is published
+CONNECT*Chrome*.mp4
+connect .png

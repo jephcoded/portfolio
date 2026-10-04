@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#080808" />
   <title>jephdev | Mobile & Full-Stack Developer</title>
   <link rel="icon" type="image/png" href="favicon.png" />
   <meta name="description" content="jephdev — Mobile & Full-Stack developer. React Native, Next.js, Node.js. Available for hire." />
@@ -11,6 +12,7 @@
   <meta property="og:image" content="profile.png" />
   <meta property="og:type" content="website" />
   <meta name="twitter:card" content="summary_large_image" />
+  <meta name="google-site-verification" content="kobqJArBLyjQQCQEYqQcwsHWDwMxcxX4MfgUhnoYzo0" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet" />
@@ -30,7 +32,7 @@
       </ul>
       <div class="nav-overlay-socials">
         <a href="https://github.com/jephcoded" target="_blank" rel="noopener noreferrer">GitHub</a>
-        <a href="https://linkedin.com/in/jephdev" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="https://www.linkedin.com/in/jephcoding123" target="_blank" rel="noopener noreferrer">LinkedIn</a>
         <a href="mailto:jephcoding@gmail.com">Email</a>
         <a href="https://wa.me/2349067069213" target="_blank" rel="noopener noreferrer">WhatsApp</a>
       </div>
@@ -67,28 +69,37 @@
 
   <main>
     <section class="hero-full" id="hero">
+      <div class="hero-bg" aria-hidden="true">
+        <span class="hero-glow hero-glow--a"></span>
+        <span class="hero-glow hero-glow--b"></span>
+        <span class="hero-grid"></span>
+      </div>
+      <div class="hero-grain" aria-hidden="true"></div>
       <aside class="hero-social-bar" aria-label="Social links">
         <div class="hero-social-line"></div>
         <a href="https://github.com/jephcoded" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="bi bi-github"></i></a>
-        <a href="https://linkedin.com/in/jephdev" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+        <a href="https://www.linkedin.com/in/jephcoding123" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
         <a href="https://wa.me/2349067069213" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></a>
         <div class="hero-social-line"></div>
       </aside>
       <div class="hero-photo-panel" aria-hidden="true">
-        <img src="profile.png" alt="" class="hero-photo-img" loading="eager" />
+        <div class="hero-photo-frame">
+          <img src="profile.png" alt="" class="hero-photo-img" loading="eager" fetchpriority="high" />
+        </div>
       </div>
+      <div class="hero-tech-tags" aria-hidden="true">
+          <span>React Native</span><span>Next.js</span><span>Node.js</span><span>APIs</span><span>Payments</span><span>Admin Dashboards</span>
+        </div>
       <div class="hero-content">
         <div class="hero-avail-tag">
           <span class="hero-badge-dot"></span><span data-i18n="hero.badge">Available — Taking new projects</span>
         </div>
-        <div class="hero-name-block">
-          <span class="hero-name-top">JEPH</span>
-          <span class="hero-name-big">DEV<span class="name-dot" aria-hidden="true"></span></span>
-        </div>
+        <h1 class="hero-name-block" aria-label="Jeph Dev">
+          <span class="hero-name-top" aria-hidden="true">JEPH</span>
+          <span class="hero-name-big" aria-hidden="true"><span class="hl" style="--i:0"><span>D</span></span><span class="hl" style="--i:1"><span>E</span></span><span class="hl" style="--i:2"><span>V</span></span><span class="name-dot"></span></span>
+        </h1>
+        <p class="hero-role"><span data-i18n="hero.role">Mobile &amp; Full-Stack Developer · Founder</span></p>
         <p class="hero-tagline" id="heroTagline" data-i18n="hero.tagline">I don't just write code — I build products that generate real revenue.</p>
-        <div class="hero-tech-tags" aria-hidden="true">
-          <span>React Native</span><span>Next.js</span><span>Node.js</span><span>APIs</span><span>Payments</span><span>Admin Dashboards</span>
-        </div>
         <div class="hero-actions" id="heroActions">
           <a href="contact.html" class="btn" data-i18n="hero.cta1">Get a Project Quote</a>
           <a href="projects.html" class="btn btn-ghost" data-i18n="hero.cta2">View My Work</a>
@@ -171,7 +182,7 @@
       <h2 data-i18n="svc.title">What I Build</h2>
       <div class="services-editorial">
         <div class="service-col">
-          <span class="service-col-num">📱 01 ──</span>
+          <span class="service-col-num"><span class="svc-ico"><i class="bi bi-phone"></i></span><span class="svc-idx">01</span></span>
           <h3 data-i18n="svc1.title">Mobile Apps</h3>
           <p data-i18n="svc1.desc">Your customers download it, use it, and pay through it — on iPhone and Android. I handle everything from first screen to App Store launch.</p>
           <ul>
@@ -181,7 +192,7 @@
           </ul>
         </div>
         <div class="service-col">
-          <span class="service-col-num">💻 02 ──</span>
+          <span class="service-col-num"><span class="svc-ico"><i class="bi bi-laptop"></i></span><span class="svc-idx">02</span></span>
           <h3 data-i18n="svc2.title">Web Platforms</h3>
           <p data-i18n="svc2.desc">Customer portals, SaaS dashboards, booking systems — web products that run your business and handle real traffic from day one.</p>
           <ul>
@@ -191,7 +202,7 @@
           </ul>
         </div>
         <div class="service-col">
-          <span class="service-col-num">⚙️ 03 ──</span>
+          <span class="service-col-num"><span class="svc-ico"><i class="bi bi-gear"></i></span><span class="svc-idx">03</span></span>
           <h3 data-i18n="svc3.title">Integrations</h3>
           <p data-i18n="svc3.desc">Need your product to connect to payment gateways, WhatsApp, or other tools? I wire everything together so your business runs automatically.</p>
           <ul>
@@ -213,9 +224,27 @@
 
       <div class="work-visual-list">
 
-        <a href="jeloga.html" class="work-visual-item">
+        <a href="projects.html#connectProject" class="work-visual-item">
           <div class="work-visual-left">
             <span class="work-num">01</span>
+            <div class="work-info">
+              <h3>Connect<span class="work-founder" data-i18n="badge.founder">Founder</span></h3>
+              <p data-i18n="workc.desc">My own product — an AI business OS for small businesses. Tell it what you need in plain English; it does the work.</p>
+              <div class="stack-tags" style="margin-top:0.5rem;">
+                <span>Next.js</span><span>React</span><span>AI Assistant</span>
+              </div>
+              <span style="display:inline-block; margin-top:0.75rem; font-size:0.78rem; font-family:var(--font-mono); color:var(--muted); letter-spacing:0.04em;" data-i18n="workc.cta">View Project →</span>
+            </div>
+          </div>
+          <div class="work-visual-right">
+            <img src="connect.png" alt="Connect preview" class="work-thumb" loading="lazy" />
+            <span class="work-arrow-badge">→</span>
+          </div>
+        </a>
+
+        <a href="jeloga.html" class="work-visual-item">
+          <div class="work-visual-left">
+            <span class="work-num">02</span>
             <div class="work-info">
               <h3 data-i18n="work1.title">Jeloga</h3>
               <p data-i18n="work1.desc">Built a complete ride-sharing platform — mobile app, web dashboard &amp; live backend. Real bookings, real drivers, real revenue across Nigeria.</p>
@@ -233,7 +262,7 @@
 
         <a href="https://stulovax.com" target="_blank" rel="noopener noreferrer" class="work-visual-item">
           <div class="work-visual-left">
-            <span class="work-num">02</span>
+            <span class="work-num">03</span>
             <div class="work-info">
               <h3 data-i18n="work2.title">Stulovax</h3>
               <p data-i18n="work2.desc">Remote operations platform letting overseas founders manage Nigerian staff, track performance &amp; oversee business — from anywhere in the world.</p>
@@ -250,7 +279,7 @@
 
         <a href="https://kickgrid.live" target="_blank" rel="noopener noreferrer" class="work-visual-item">
           <div class="work-visual-left">
-            <span class="work-num">03</span>
+            <span class="work-num">04</span>
             <div class="work-info">
               <h3 data-i18n="work3.title">Kickgrid</h3>
               <p data-i18n="work3.desc">Real-time World Cup fan platform — live scores, match predictions, and community discussion. Built and deployed solo.</p>
@@ -267,7 +296,7 @@
 
         <a href="contact.html" class="work-visual-item">
           <div class="work-visual-left">
-            <span class="work-num">04</span>
+            <span class="work-num">05</span>
             <div class="work-info">
               <h3 data-i18n="work4.title">Your Project?</h3>
               <p data-i18n="work4.desc">Available now for mobile or full-stack builds. Let's make something real.</p>
@@ -329,11 +358,15 @@
   </main>
 
   <footer class="footer">
+    <div class="container footer-hero">
+      <p class="footer-kicker" data-i18n="footer.kicker">Have a project in mind?</p>
+      <a href="mailto:jephcoding@gmail.com" class="footer-mail"><span>jephcoding@gmail.com</span><i class="bi bi-arrow-up-right"></i></a>
+    </div>
     <div class="container footer-content">
       <p>© <span id="year"></span> jephdev. <span data-i18n="footer.rights">All rights reserved.</span></p>
       <div class="socials">
         <a href="https://github.com/jephcoded" target="_blank" rel="noopener noreferrer">GitHub</a>
-        <a href="https://linkedin.com/in/jephdev" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="https://www.linkedin.com/in/jephcoding123" target="_blank" rel="noopener noreferrer">LinkedIn</a>
         <a href="mailto:jephcoding@gmail.com">Email</a>
         <a href="https://wa.me/2349067069213" target="_blank" rel="noopener noreferrer">WhatsApp</a>
       </div>
@@ -343,3 +376,4 @@
   <script src="script.js"></script>
 </body>
 </html>
+

@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#080808" />
   <title>Projects | jephdev</title>
   <link rel="icon" type="image/png" href="favicon.png" />
   <link rel="shortcut icon" href="favicon.png" />
@@ -197,7 +198,7 @@
       </ul>
       <div class="nav-overlay-socials">
         <a href="https://github.com/jephcoded" target="_blank" rel="noopener noreferrer">GitHub</a>
-        <a href="https://linkedin.com/in/jephdev" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="https://www.linkedin.com/in/jephcoding123" target="_blank" rel="noopener noreferrer">LinkedIn</a>
         <a href="mailto:jephcoding@gmail.com">Email</a>
         <a href="https://wa.me/2349067069213" target="_blank" rel="noopener noreferrer">WhatsApp</a>
       </div>
@@ -240,6 +241,32 @@
     </section>
 
     <section class="section container">
+      <p class="section-eyebrow" style="margin-bottom:1rem;" data-i18n="founder.eyebrow">Founder Project</p>
+
+      <article class="founder-feature" id="connectProject">
+        <div class="founder-media">
+          <video class="founder-video" src="connect.mp4" poster="connect.png" muted loop playsinline preload="metadata" aria-label="Screen recording of Connect: the home page, the dashboard, the assistant's actions, the founder note and the login"></video>
+          <button type="button" class="founder-toggle" aria-label="Pause demo video"><i class="bi bi-pause-fill"></i></button>
+        </div>
+        <div class="founder-body">
+          <div class="founder-badges">
+            <span class="badge-founder"><i class="bi bi-stars"></i><span data-i18n="badge.founder">Founder</span></span>
+            <span class="badge-live"><i class="live-dot"></i><span data-i18n="badge.live">Live</span></span>
+          </div>
+          <p class="founder-kicker">AI Business OS</p>
+          <h2>Connect.</h2>
+          <p data-i18n="connect.desc">My own product, not client work. Connect is an AI business OS for small businesses — tell it what you need in plain English and it does the work: logs it, sends it, marks it done. Orders, invoices, customers and insights in one workspace, with WhatsApp and email connected.</p>
+          <div class="stack-tags">
+            <span>Next.js</span><span>React</span><span>AI Assistant</span><span>Vercel</span>
+          </div>
+          <div class="founder-links">
+            <a href="https://connect-business-os.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn" data-i18n="connect.visit">↗ Visit Connect</a>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <section class="section container">
       <p class="section-eyebrow" style="margin-bottom:1rem;" data-i18n="feat.eyebrow">Featured</p>
 
       <div class="jeloga-feature" id="featuredProject">
@@ -247,7 +274,7 @@
         <div class="jeloga-feature-body">
           <div>
             <div style="display:flex; align-items:center; gap:0.7rem; margin-bottom:0.5rem;">
-              <span class="badge-live">● <span data-i18n="badge.live">Live</span></span>
+              <span class="badge-live"><i class="live-dot"></i><span data-i18n="badge.live">Live</span></span>
             </div>
 
             <h2>Jeloga.</h2>
@@ -282,7 +309,7 @@
               <span>Next.js</span><span>React</span><span>Node.js</span>
             </div>
             <div class="project-card-footer">
-              <span class="badge-live">● <span data-i18n="badge.live">Live</span></span>
+              <span class="badge-live"><i class="live-dot"></i><span data-i18n="badge.live">Live</span></span>
               <a href="https://stulovax.com" target="_blank" rel="noopener noreferrer" class="project-live-link">↗ stulovax.com</a>
             </div>
           </div>
@@ -299,7 +326,7 @@
               <span>Next.js</span><span>React</span><span>Node.js</span>
             </div>
             <div class="project-card-footer">
-              <span class="badge-live">● <span data-i18n="badge.live">Live</span></span>
+              <span class="badge-live"><i class="live-dot"></i><span data-i18n="badge.live">Live</span></span>
               <a href="https://kickgrid.live" target="_blank" rel="noopener noreferrer" class="project-live-link">↗ kickgrid.live</a>
             </div>
           </div>
@@ -321,11 +348,15 @@
   </main>
 
   <footer class="footer">
+    <div class="container footer-hero">
+      <p class="footer-kicker" data-i18n="footer.kicker">Have a project in mind?</p>
+      <a href="mailto:jephcoding@gmail.com" class="footer-mail"><span>jephcoding@gmail.com</span><i class="bi bi-arrow-up-right"></i></a>
+    </div>
     <div class="container footer-content">
       <p>© <span id="year"></span> jephdev. <span data-i18n="footer.rights">All rights reserved.</span></p>
       <div class="socials">
         <a href="https://github.com/jephcoded" target="_blank" rel="noopener noreferrer">GitHub</a>
-        <a href="https://linkedin.com/in/jephdev" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="https://www.linkedin.com/in/jephcoding123" target="_blank" rel="noopener noreferrer">LinkedIn</a>
         <a href="mailto:jephcoding@gmail.com">Email</a>
         <a href="https://wa.me/2349067069213" target="_blank" rel="noopener noreferrer">WhatsApp</a>
       </div>
@@ -335,3 +366,4 @@
   <script src="script.js"></script>
 </body>
 </html>
+

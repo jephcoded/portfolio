@@ -18,6 +18,7 @@ const header     = document.getElementById("siteHeader");
 function openMenu() {
   navOverlay.classList.add("open");
   menuBtn.classList.add("open");
+  document.body.classList.add("menu-open");
   menuBtn.setAttribute("aria-expanded", "true");
   document.body.style.overflow = "hidden";
 }
@@ -25,6 +26,7 @@ function openMenu() {
 function closeMenu() {
   navOverlay.classList.remove("open");
   menuBtn.classList.remove("open");
+  document.body.classList.remove("menu-open");
   menuBtn.setAttribute("aria-expanded", "false");
   document.body.style.overflow = "";
 }
@@ -49,6 +51,131 @@ if (menuBtn && navOverlay) {
     if (e.target === navOverlay) closeMenu();
   });
 }
+
+// ══════════════════════════════════════════════════════
+// NAV FX — capsule navbar: letter-roll logo, sliding pill,
+//          cursor spotlight, magnetic CTA, language thumb
+// ══════════════════════════════════════════════════════
+(function navFx() {
+  const nav = document.querySelector(".header .nav");
+  if (!nav) return;
+
+  // ── Logo: split into letters so each can roll on hover ──
+  const logo = nav.querySelector(".logo");
+  if (logo && !logo.querySelector(".lg")) {
+    const word = logo.textContent.trim().replace(/\.$/, "");
+    logo.setAttribute("aria-label", word);
+    logo.innerHTML =
+      '<span class="logo-word" aria-hidden="true">' +
+      [...word].map((c, i) => `<span class="lg" style="--i:${i}"><i>${c}</i><i>${c}</i></span>`).join("") +
+      '</span><span class="logo-dot" aria-hidden="true">.</span>';
+  }
+
+  // ── Sliding pill behind the inline links ──
+  const list = nav.querySelector(".nav-links-inline");
+  if (list) {
+    const pill = document.createElement("li");
+    pill.className = "nav-pill";
+    pill.setAttribute("aria-hidden", "true");
+    list.appendChild(pill);
+
+    const links = [...list.querySelectorAll("a")];
+    let hovered = null;
+
+    const syncPill = () => {
+      if (!list.offsetParent) return; // hidden (mobile widths)
+      const target = hovered || list.querySelector("a.current");
+      if (!target) { pill.classList.remove("on", "rest"); return; }
+      const wasOn = pill.classList.contains("on");
+      if (!wasOn) pill.classList.add("snap");
+      pill.style.setProperty("--x", target.offsetLeft + "px");
+      pill.style.setProperty("--y", target.offsetTop + "px");
+      pill.style.setProperty("--w", target.offsetWidth + "px");
+      pill.style.setProperty("--h", target.offsetHeight + "px");
+      pill.classList.add("on");
+      pill.classList.toggle("rest", !hovered);
+      if (!wasOn) { void pill.offsetWidth; pill.classList.remove("snap"); }
+    };
+
+    links.forEach((a) => {
+      a.addEventListener("pointerenter", () => { hovered = a; syncPill(); });
+    });
+    list.addEventListener("pointerleave", () => { hovered = null; syncPill(); });
+    list.addEventListener("focusin", (e) => {
+      if (e.target.matches(":focus-visible")) { hovered = e.target; syncPill(); }
+    });
+    list.addEventListener("focusout", () => { hovered = null; syncPill(); });
+
+    // re-measure when fonts load, the language changes text width, or the viewport resizes
+    const ro = new ResizeObserver(syncPill);
+    ro.observe(list);
+    links.forEach((a) => ro.observe(a));
+    syncPill();
+  }
+
+  // ── Cursor spotlight across the capsule ──
+  nav.addEventListener("pointermove", (e) => {
+    if (e.pointerType !== "mouse") return;
+    const r = nav.getBoundingClientRect();
+    nav.style.setProperty("--mx", e.clientX - r.left + "px");
+    nav.style.setProperty("--my", e.clientY - r.top + "px");
+  });
+
+  // ── CTA: bloom starts where the cursor enters, button leans toward the cursor ──
+  const cta = nav.querySelector(".nav-cta-btn");
+  if (cta) {
+    let tx = 0, ty = 0;
+    const origin = (e) => {
+      const r = cta.getBoundingClientRect();
+      cta.style.setProperty("--bx", e.clientX - r.left + "px");
+      cta.style.setProperty("--by", e.clientY - r.top + "px");
+    };
+    cta.addEventListener("pointerenter", origin);
+    cta.addEventListener("pointerleave", (e) => {
+      origin(e);
+      tx = ty = 0;
+      cta.style.setProperty("--tx", "0px");
+      cta.style.setProperty("--ty", "0px");
+    });
+    if (!prefersReducedMotion) {
+      cta.addEventListener("pointermove", (e) => {
+        const r = cta.getBoundingClientRect();
+        const cx = r.left - tx + r.width / 2;
+        const cy = r.top - ty + r.height / 2;
+        tx = (e.clientX - cx) * 0.16;
+        ty = (e.clientY - cy) * 0.3;
+        cta.style.setProperty("--tx", tx.toFixed(2) + "px");
+        cta.style.setProperty("--ty", ty.toFixed(2) + "px");
+      });
+    }
+  }
+
+  // ── Language switcher: thumb slides to the active language ──
+  const sw = nav.querySelector(".lang-switcher");
+  if (sw) {
+    const thumb = document.createElement("span");
+    thumb.className = "lang-thumb snap";
+    thumb.setAttribute("aria-hidden", "true");
+    sw.appendChild(thumb);
+    sw.classList.add("has-thumb");
+
+    let placed = false;
+    const activeBtn = () => sw.querySelector(".lang-btn.active");
+    const moveThumb = (btn) => {
+      if (!btn || !sw.offsetParent) return;
+      thumb.style.setProperty("--x", btn.offsetLeft + "px");
+      thumb.style.setProperty("--w", btn.offsetWidth + "px");
+      if (!placed) { void thumb.offsetWidth; thumb.classList.remove("snap"); placed = true; }
+    };
+
+    sw.querySelectorAll(".lang-btn").forEach((b) => {
+      b.addEventListener("click", () => moveThumb(b)); // move now; the page text swaps ~220ms later
+      new MutationObserver(() => moveThumb(activeBtn())).observe(b, { attributes: true, attributeFilter: ["class"] });
+    });
+    new ResizeObserver(() => moveThumb(activeBtn())).observe(sw);
+    moveThumb(activeBtn());
+  }
+})();
 
 // ══════════════════════════════════════════════════════
 // SCROLL FX — header background on scroll
@@ -381,6 +508,13 @@ const TRANSLATIONS = {
     "nav.services":"Services","nav.contact":"Contact","nav.cta":"Get a Quote",
     /* ── hero ── */
     "hero.badge":"Available — Taking new projects",
+    "hero.role":"Mobile & Full-Stack Developer · Founder",
+    "founder.eyebrow":"Founder Project",
+    "badge.founder":"Founder",
+    "connect.visit":"↗ Visit Connect",
+    "workc.cta":"View Project →",
+    "workc.desc":"My own product — an AI business OS for small businesses. Tell it what you need in plain English; it does the work.",
+    "connect.desc":"My own product, not client work. Connect is an AI business OS for small businesses — tell it what you need in plain English and it does the work: logs it, sends it, marks it done. Orders, invoices, customers and insights in one workspace, with WhatsApp and email connected.",
     "hero.tagline":"I don't just write code — I build products that generate real revenue.",
     "hero.cta1":"Get a Project Quote","hero.cta2":"View My Work",
     "hero.trust1":"Free scoping call","hero.trust2":"Clear upfront quote","hero.trust3":"NDA on request",
@@ -491,6 +625,7 @@ const TRANSLATIONS = {
     "proj.cta.desc":"Available for mobile or full-stack builds. Let's make something worth showing here.",
     "proj.cta.btn":"Let's Talk ↗",
     /* ── footer ── */
+    "footer.kicker":"Have a project in mind?",
     "footer.rights":"All rights reserved.",
   },
 
@@ -498,6 +633,13 @@ const TRANSLATIONS = {
     "nav.home":"Accueil","nav.about":"À propos","nav.projects":"Projets",
     "nav.services":"Services","nav.contact":"Contact","nav.cta":"Obtenir un devis",
     "hero.badge":"Disponible — Accepte de nouveaux projets",
+    "hero.role":"Développeur Mobile & Full-Stack · Fondateur",
+    "founder.eyebrow":"Projet fondateur",
+    "badge.founder":"Fondateur",
+    "connect.visit":"↗ Visiter Connect",
+    "workc.cta":"Voir le projet →",
+    "workc.desc":"Mon propre produit — un système d'exploitation d'entreprise IA pour les petites entreprises. Dites ce qu'il vous faut en langage simple ; il fait le travail.",
+    "connect.desc":"Mon propre produit, pas un projet client. Connect est un système d'exploitation d'entreprise propulsé par l'IA pour les petites entreprises : dites ce dont vous avez besoin en langage simple et il fait le travail — il l'enregistre, l'envoie, le marque comme fait. Commandes, factures, clients et analyses dans un seul espace, avec WhatsApp et e-mail connectés.",
     "hero.tagline":"Je ne me contente pas d'écrire du code — je construis des produits qui génèrent de vrais revenus.",
     "hero.cta1":"Demander un devis","hero.cta2":"Voir mes projets",
     "hero.trust1":"Appel gratuit","hero.trust2":"Devis clair","hero.trust3":"NDA disponible",
@@ -599,6 +741,7 @@ const TRANSLATIONS = {
     "proj.cta.eyebrow":"Suivant","proj.cta.title":"Votre projet ?",
     "proj.cta.desc":"Disponible pour des créations mobiles ou full-stack. Faisons quelque chose qui mérite d'être montré ici.",
     "proj.cta.btn":"Discutons ↗",
+    "footer.kicker":"Un projet en tête ?",
     "footer.rights":"Tous droits réservés.",
   },
 
@@ -606,6 +749,13 @@ const TRANSLATIONS = {
     "nav.home":"Inicio","nav.about":"Acerca","nav.projects":"Proyectos",
     "nav.services":"Servicios","nav.contact":"Contacto","nav.cta":"Presupuesto",
     "hero.badge":"Disponible — Aceptando nuevos proyectos",
+    "hero.role":"Desarrollador Mobile y Full-Stack · Fundador",
+    "founder.eyebrow":"Proyecto del fundador",
+    "badge.founder":"Fundador",
+    "connect.visit":"↗ Visitar Connect",
+    "workc.cta":"Ver proyecto →",
+    "workc.desc":"Mi propio producto — un sistema operativo de negocio con IA para pequeñas empresas. Dile lo que necesitas en lenguaje sencillo y hace el trabajo.",
+    "connect.desc":"Mi propio producto, no trabajo para clientes. Connect es un sistema operativo de negocio con IA para pequeñas empresas: dile lo que necesitas en lenguaje sencillo y hace el trabajo — lo registra, lo envía, lo marca como hecho. Pedidos, facturas, clientes y análisis en un solo espacio, con WhatsApp y correo conectados.",
     "hero.tagline":"No solo escribo código — construyo productos que generan ingresos reales.",
     "hero.cta1":"Solicitar presupuesto","hero.cta2":"Ver mi trabajo",
     "hero.trust1":"Llamada gratuita","hero.trust2":"Presupuesto claro","hero.trust3":"NDA disponible",
@@ -707,6 +857,7 @@ const TRANSLATIONS = {
     "proj.cta.eyebrow":"Siguiente","proj.cta.title":"¿Tu proyecto?",
     "proj.cta.desc":"Disponible para proyectos móviles o full-stack. Hagamos algo que valga la pena mostrar aquí.",
     "proj.cta.btn":"Hablemos ↗",
+    "footer.kicker":"¿Tienes un proyecto en mente?",
     "footer.rights":"Todos los derechos reservados.",
   }
 };
@@ -799,16 +950,238 @@ function switchLang(lang) {
 })();
 
 // ══════════════════════════════════════════════════════
-// HERO PARALLAX (subtle background shift on scroll)
+// HERO MOTION — cursor-lit grid, gentle parallax, scroll-out fade
+// (all driven through CSS variables on .hero-full; see styles.css)
 // ══════════════════════════════════════════════════════
-const heroSection = document.querySelector(".hero-full");
-if (heroSection && window.matchMedia("(prefers-reduced-motion: no-preference)").matches) {
-  window.addEventListener("scroll", () => {
-    const y = window.scrollY * 0.28;
-    heroSection.style.backgroundPositionY = `calc(center + ${y}px)`;
-  }, { passive: true });
-}
+(function heroMotion() {
+  const hero = document.querySelector(".hero-full");
+  if (!hero) return;
 
+  if (prefersReducedMotion) return;
+
+  const cur = { x: 0, y: 0, nx: 0, ny: 0 };
+  const tgt = { x: 0, y: 0, nx: 0, ny: 0 };
+  let raf = 0;
+  let scrollRaf = 0;
+  let home = true; // cursor parked at the default light position
+
+  const rest = () => {
+    const r = hero.getBoundingClientRect();
+    tgt.x = r.width * 0.34; tgt.y = r.height * 0.46; tgt.nx = 0; tgt.ny = 0;
+  };
+
+  const paint = () => {
+    raf = 0;
+    let moving = false;
+    for (const k of ["x", "y", "nx", "ny"]) {
+      const d = tgt[k] - cur[k];
+      if (Math.abs(d) > (k.length === 1 ? 0.4 : 0.002)) { cur[k] += d * 0.09; moving = true; }
+      else cur[k] = tgt[k];
+    }
+    hero.style.setProperty("--hx", cur.x.toFixed(1) + "px");
+    hero.style.setProperty("--hy", cur.y.toFixed(1) + "px");
+    hero.style.setProperty("--px", cur.nx.toFixed(3));
+    hero.style.setProperty("--py", cur.ny.toFixed(3));
+    if (moving) raf = requestAnimationFrame(paint);
+  };
+  const kick = () => { if (!raf) raf = requestAnimationFrame(paint); };
+
+  hero.addEventListener("pointermove", (e) => {
+    if (e.pointerType !== "mouse") return;
+    const r = hero.getBoundingClientRect();
+    if (home) { cur.x = r.width * 0.34; cur.y = r.height * 0.46; home = false; }
+    tgt.x = e.clientX - r.left;
+    tgt.y = e.clientY - r.top;
+    tgt.nx = (tgt.x / r.width - 0.5) * 2;
+    tgt.ny = (tgt.y / r.height - 0.5) * 2;
+    kick();
+  });
+  hero.addEventListener("pointerleave", () => { rest(); kick(); });
+
+  // scroll: how far the hero has left the screen (0 → 1)
+  const onScroll = () => {
+    scrollRaf = 0;
+    const p = Math.min(1, Math.max(0, window.scrollY / (hero.offsetHeight * 0.85)));
+    hero.style.setProperty("--sy", p.toFixed(3));
+  };
+  window.addEventListener("scroll", () => { if (!scrollRaf) scrollRaf = requestAnimationFrame(onScroll); }, { passive: true });
+  onScroll();
+})();
+
+
+// ══════════════════════════════════════════════════════
+// SITE FX — shared behaviour for every page
+//   button bloom · cursor-lit cards · staggered reveals ·
+//   ambient page backdrop · testimonial initials
+// ══════════════════════════════════════════════════════
+(function siteFx() {
+  // Buttons: the fill blooms from the point where the cursor enters / leaves
+  document.querySelectorAll(".btn").forEach((btn) => {
+    const origin = (e) => {
+      const r = btn.getBoundingClientRect();
+      btn.style.setProperty("--bx", e.clientX - r.left + "px");
+      btn.style.setProperty("--by", e.clientY - r.top + "px");
+    };
+    btn.addEventListener("pointerenter", origin);
+    btn.addEventListener("pointerleave", origin);
+  });
+
+  // Testimonial avatars show the initial of the person quoted
+  document.querySelectorAll(".testimonial-card").forEach((card) => {
+    const dot = card.querySelector(".testimonial-dot");
+    const name = card.querySelector(".testimonial-name");
+    if (dot && name && !dot.textContent.trim()) {
+      dot.textContent = name.textContent.trim().replace(/^\w{1,3}\.\s*/, "").charAt(0).toUpperCase();
+    }
+  });
+
+  // Cards: a soft light + rim that follows the cursor
+  const spotSel = ".service-col, .stack-group, .testimonial-card, .project-card, .project-card-cta, .case-feature, .case-result-card, .case-info-card, .quick-link, .faq-item, .jeloga-feature, .founder-feature, .contact-form, .stats-row";
+  document.querySelectorAll(spotSel).forEach((el) => el.classList.add("spot"));
+  document.addEventListener("pointermove", (e) => {
+    if (e.pointerType !== "mouse" || !e.target.closest) return;
+    const el = e.target.closest(".spot");
+    if (!el) return;
+    const r = el.getBoundingClientRect();
+    el.style.setProperty("--mx", e.clientX - r.left + "px");
+    el.style.setProperty("--my", e.clientY - r.top + "px");
+  }, { passive: true });
+
+  // Inner pages: the grid behind the heading lights up under the cursor
+  const pageMain = document.querySelector(".page-main");
+  if (pageMain) {
+    pageMain.addEventListener("pointermove", (e) => {
+      if (e.pointerType !== "mouse") return;
+      const r = pageMain.getBoundingClientRect();
+      pageMain.style.setProperty("--mx", e.clientX - r.left + "px");
+      pageMain.style.setProperty("--my", e.clientY - r.top + "px");
+    }, { passive: true });
+  }
+
+  // Reveals: cards rise in a short stagger as they enter the viewport
+  if (prefersReducedMotion) return;
+  const rvSel = ".service-col, .process-item, .faq-item, .project-card, .project-card-cta, .case-feature, .case-result-card, .case-info-card, .testimonial-card, .stack-group, .work-visual-item, .stat-item, .quick-link, .jeloga-feature, .founder-feature, .about-photo-wrap, .contact-form, .case-brief-body";
+  const items = [...document.querySelectorAll(rvSel)];
+  items.forEach((el) => {
+    const sibs = [...el.parentElement.children].filter((c) => c.matches(rvSel));
+    el.style.setProperty("--d", Math.min(sibs.indexOf(el), 5) * 0.09 + "s");
+    el.classList.add("rv");
+  });
+  const io = new IntersectionObserver((entries, obs) => {
+    entries.forEach((en) => {
+      if (en.isIntersecting) { en.target.classList.add("in"); obs.unobserve(en.target); }
+    });
+  }, { threshold: 0.12, rootMargin: "0px 0px -30px 0px" });
+  items.forEach((el) => io.observe(el));
+})();
+
+
+// ══════════════════════════════════════════════════════
+// MOBILE DOCK — app-style bottom navigation (shown ≤ 839px via CSS)
+// Built from the menu links so pages need no extra markup. The indicator
+// slides from the tab you came from to the tab you are on, across pages.
+// ══════════════════════════════════════════════════════
+(function mobileDock() {
+  const links = [...document.querySelectorAll(".nav-overlay-links a")];
+  if (!links.length) return;
+
+  const icons = {
+    "index.html": "house",
+    "about.html": "person",
+    "projects.html": "grid-1x2",
+    "services.html": "stars",
+    "contact.html": "chat-dots",
+  };
+
+  const dock = document.createElement("nav");
+  dock.className = "dock";
+  dock.setAttribute("aria-label", "Main");
+
+  links.forEach((src) => {
+    const href = src.getAttribute("href");
+    const label = src.querySelector("[data-i18n]");
+    const a = document.createElement("a");
+    a.className = "dock-item";
+    a.href = href;
+    if (src.classList.contains("current")) { a.classList.add("is-active"); a.setAttribute("aria-current", "page"); }
+    a.innerHTML =
+      `<i class="bi bi-${icons[href] || "circle"}" aria-hidden="true"></i>` +
+      `<span${label ? ` data-i18n="${label.getAttribute("data-i18n")}"` : ""}>${label ? label.textContent : ""}</span>`;
+    dock.appendChild(a);
+  });
+
+  const pill = document.createElement("span");
+  pill.className = "dock-pill";
+  pill.setAttribute("aria-hidden", "true");
+  dock.appendChild(pill);
+  document.body.appendChild(dock);
+
+  const items = [...dock.querySelectorAll(".dock-item")];
+  const now = Math.max(0, items.findIndex((a) => a.classList.contains("is-active")));
+  let from = now;
+  try {
+    const saved = parseInt(sessionStorage.getItem("dockIdx"), 10);
+    if (!Number.isNaN(saved) && saved >= 0 && saved < items.length) from = saved;
+  } catch (e) { /* storage blocked: the pill simply starts on the current tab */ }
+
+  // start on the tab we came from, then glide to the current one
+  pill.style.transition = "none";
+  pill.style.setProperty("--i", from);
+  void pill.offsetWidth;
+  pill.style.transition = "";
+  requestAnimationFrame(() => requestAnimationFrame(() => pill.style.setProperty("--i", now)));
+
+  items.forEach((a, i) => a.addEventListener("click", () => {
+    try { sessionStorage.setItem("dockIdx", i); } catch (e) { /* ignore */ }
+    pill.style.setProperty("--i", i);
+  }));
+  try { sessionStorage.setItem("dockIdx", now); } catch (e) { /* ignore */ }
+
+  // labels were added after the saved language was applied — translate them now
+  const savedLang = localStorage.getItem(LANG_KEY) || "en";
+  if (savedLang !== "en") applyLang(savedLang);
+
+  // touch screens: the card nearest the middle of the screen lights up as you scroll
+  if (window.matchMedia("(hover: none)").matches) {
+    const focusIo = new IntersectionObserver((entries) => {
+      entries.forEach((en) => en.target.classList.toggle("focus", en.isIntersecting));
+    }, { rootMargin: "-42% 0px -42% 0px" });
+    document.querySelectorAll(".spot").forEach((el) => focusIo.observe(el));
+  }
+})();
+
+
+// ══════════════════════════════════════════════════════
+// FOUNDER VIDEO — plays while on screen, pauses off screen,
+// always user-pausable (and never autoplays with reduced motion)
+// ══════════════════════════════════════════════════════
+(function founderVideo() {
+  const v = document.querySelector(".founder-video");
+  if (!v) return;
+  const btn = document.querySelector(".founder-toggle");
+  let userPaused = prefersReducedMotion;
+
+  const syncBtn = () => {
+    if (!btn) return;
+    btn.innerHTML = '<i class="bi bi-' + (v.paused ? "play-fill" : "pause-fill") + '"></i>';
+    btn.setAttribute("aria-label", v.paused ? "Play demo video" : "Pause demo video");
+  };
+  v.addEventListener("play", syncBtn);
+  v.addEventListener("pause", syncBtn);
+
+  new IntersectionObserver((entries) => {
+    entries.forEach((en) => {
+      if (en.isIntersecting) { if (!userPaused) v.play().catch(() => {}); }
+      else v.pause();
+    });
+  }, { threshold: 0.35 }).observe(v);
+
+  if (btn) btn.addEventListener("click", () => {
+    if (v.paused) { userPaused = false; v.play().catch(() => {}); }
+    else { userPaused = true; v.pause(); }
+  });
+  syncBtn();
+})();
 
 // ══════════════════════════════════════════════════════
 // TEXT KINETICS — word/line reveals on scroll
