@@ -34,7 +34,7 @@ This is a static, framework-free portfolio site — no build step, no bundler, n
 |---|---|
 | [`index.html`](index.html) | Hero, stats, tech stack marquee, services overview, selected work, testimonials |
 | [`about.html`](about.html) | Bio, location, tech stack breakdown |
-| [`projects.html`](projects.html) | Founder project (Connect) + live client projects — Jeloga, Stulovax, Kickgrid |
+| [`projects.html`](projects.html) | Founder project (Connect) + live client projects — Jeloga, Airride, Stulovax, Kickgrid |
 | [`services.html`](services.html) | Full service breakdown, process timeline, FAQ |
 | [`contact.html`](contact.html) | Contact form + direct links (WhatsApp, email, GitHub, LinkedIn) |
 | [`jeloga.html`](jeloga.html) | Full case study — Jeloga ride-sharing platform |
@@ -97,6 +97,7 @@ This is a static, framework-free portfolio site — no build step, no bundler, n
 ├── connect.png / connect.mp4   # Connect (founder project) screenshot + demo clip
 ├── jeloga.png                   # Jeloga project images
 ├── stulovax.png / stulovax2.png # Stulovax project images
+├── airride.png                   # Airride project image
 ├── kickgrid.png                  # Kickgrid project image
 └── README.md
 ```
